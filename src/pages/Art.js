@@ -57,7 +57,7 @@ const Art = () => {
   return (
     <Box 
       sx={{
-        minHeight: '120vh',
+        minHeight: '160vh',
         bgcolor: '#0A192F',
         backgroundImage: 'url(/images/7448162.jpg)',
         backgroundSize: 'cover',
