@@ -149,9 +149,12 @@ const Art = () => {
           position: 'relative',
           width: '100%',
           height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           maxWidth: '1400px',
-          overflow: 'visible',
-          mb: 10  // Add margin bottom to prevent any cutoff
+          margin: '0 auto',
+          overflow: 'visible'
         }}
       >
         {artworkData.map((art) => (
@@ -159,13 +162,13 @@ const Art = () => {
             key={art.id}
             initial={{ 
               rotate: art.position.rotate,
-              x: art.position.x,
-              y: art.position.y,
+              x: art.position.x - 700,  // Adjust the x offset
+              y: art.position.y - 400,  // Adjust the y offset
             }}
             style={{
               position: 'absolute',
               cursor: 'pointer',
-              transform: 'translate(-50%, -50%)',
+              transformOrigin: 'center',
             }}
             whileHover={{ 
               scale: 1.05,
