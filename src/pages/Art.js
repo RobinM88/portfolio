@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Typography,
   Box,
-  Card,
   Dialog,
   DialogContent,
   IconButton,
@@ -10,7 +9,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { motion } from 'framer-motion';
 
-const MotionCard = motion(Card);
+
 
 const artworkData = [
   {
@@ -25,21 +24,21 @@ const artworkData = [
     title: 'Samurai Wolf Hat',
     imageUrl: '/images/Samurai wolf hat.jpg',
     cardImageUrl: '/images/Samurai wolf hat card.png',
-    position: { x: 805, y: 335, rotate: 10 }
+    position: { x: 805, y: 395, rotate: 10 }
   },
   {
     id: 3,
     title: 'Dragon',
     imageUrl: '/images/Dragon fight.jpg',
     cardImageUrl: '/images/Dragon card.png',
-    position: { x: 805, y: 39, rotate: -10 }
+    position: { x: 805, y: 80, rotate: -10 }
   },
   {
     id: 4,
     title: 'Geisha',
     imageUrl: '/images/Geisha.jpg',
     cardImageUrl: '/images/geisha card.png',
-    position: { x: 585.14, y: -41, rotate: 15 }
+    position: { x: 585.14, y: 50, rotate: 15 }
   }
 ];
 
@@ -57,7 +56,7 @@ const Art = () => {
   return (
     <Box 
       sx={{
-        minHeight: '160vh',
+        minHeight: '100vh',
         bgcolor: '#0A192F',
         backgroundImage: 'url(/images/7448162.jpg)',
         backgroundSize: 'cover',
@@ -70,83 +69,90 @@ const Art = () => {
         sx={{
           position: 'fixed',
           width: '100%',
-          height: '100%',
+          height: '100vh',
           top: 0,
           left: 0,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
           pointerEvents: 'none'
         }}
       >
         <Box
           sx={{
-            position: 'relative',
-            width: '900px',
-            height: '65px',
-            pointerEvents: 'auto'
+            position: 'absolute',
+            width: '1129px',
+            height: '82px',
+            pointerEvents: 'auto',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            left: '475px',
+            top: '350px',
+            transform: 'none'
           }}
         >
-          {/* Base layer - cream fill with coral stroke */}
+          {/* Base layer - coral fill */}
           <Typography
             variant="h1"
             component="h1"
             sx={{
               fontFamily: 'MuseoModerno',
-              fontSize: '50px',
-              fontWeight: 200,
-              position: 'absolute',
-              textTransform: 'uppercase',
-              letterSpacing: '-3%',
-              color: '#FFEEDD',
-              textAlign: 'left',
-              WebkitTextStroke: '6px #FF5533',
-              shapeOutside: '6px #FF5533',
-              textShadow: '0 0 12px rgba(255, 85, 51, 0.7), 0 0 24px rgba(255, 85, 51, 0.4)',
-              zIndex: 1
-            }}
-          >
-            ART GALLERY OF ROBIN MENNEL
-          </Typography>
-
-          {/* Black layer - 20% opacity */}
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              fontFamily: 'MuseoModerno',
-              fontSize: '64px',
-              fontWeight: 200,
-              position: 'absolute',
-              textTransform: 'uppercase',
-              letterSpacing: '-3%',
-              color: '#FFEEDD',
-              opacity: 1,
-              textAlign: 'left',
-              textShadow: '0 0 15px rgba(255, 238, 221, 0.3)',
-              zIndex: 2
-            }}
-          >
-            ART GALLERY OF ROBIN MENNEL
-          </Typography>
-
-          {/* Coral layer - 20% opacity */}
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              fontFamily: 'MuseoModerno',
-              fontSize: '64px',
+              fontSize: '60px',
               fontWeight: 200,
               position: 'absolute',
               textTransform: 'uppercase',
               letterSpacing: '-3%',
               color: '#FF5533',
-              opacity: 0.2,
               textAlign: 'left',
-              textShadow: '0 0 20px rgba(255, 85, 51, 0.4)',
-              zIndex: 3
+              textShadow: '0 0 15px rgba(255, 85, 51, 0.7)',
+              zIndex: 1,
+              whiteSpace: 'nowrap'
+            }}
+          >
+            ART GALLERY OF ROBIN MENNEL
+          </Typography>
+
+          {/* Glow layer */}
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontFamily: 'MuseoModerno',
+              fontSize: '60px',
+              fontWeight: 200,
+              position: 'absolute',
+              textTransform: 'uppercase',
+              letterSpacing: '-3%',
+              color: '#FF8866',
+              opacity: 0.8,
+              textAlign: 'left',
+              textShadow: '0 0 20px rgba(255, 85, 51, 0.9), 0 0 30px rgba(255, 85, 51, 0.5)',
+              zIndex: 2,
+              whiteSpace: 'nowrap'
+            }}
+          >
+            ART GALLERY OF ROBIN MENNEL
+          </Typography>
+
+          {/* Bright highlight layer */}
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontFamily: 'MuseoModerno',
+              fontSize: '0px',
+              fontWeight: 200,
+              position: 'absolute',
+              textTransform: 'uppercase',
+              letterSpacing: '-3%',
+              color: '#FFAA99',
+              opacity: 0.4,
+              textAlign: 'left',
+              textShadow: '0 0 8px rgba(255, 255, 221, 0.8)',
+              zIndex: 3,
+              whiteSpace: 'nowrap'
             }}
           >
             ART GALLERY OF ROBIN MENNEL
@@ -157,10 +163,11 @@ const Art = () => {
         <Box 
           sx={{ 
             position: 'relative',
-            width: '100%',
-            height: 'calc(100vh - 200px)',
+            width: '90vw',
+            height: '70vh',
             maxWidth: '1400px',
-            pointerEvents: 'auto'
+            pointerEvents: 'auto',
+            margin: '0 auto'
           }}
         >
           {artworkData.map((art) => (

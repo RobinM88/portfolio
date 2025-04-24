@@ -24,7 +24,7 @@ const projectsData = [
     description: 'A modern, responsive portfolio website built with React and Material-UI, showcasing both artistic and technical work.',
     technologies: ['React', 'Material-UI', 'Framer Motion'],
     githubUrl: 'https://github.com/yourusername/portfolio',
-    liveUrl: 'https://yourportfolio.com',
+    liveUrl: 'https://portfolio-1c762.web.app/development',
   },
   {
     id: 2,

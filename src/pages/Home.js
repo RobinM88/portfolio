@@ -7,7 +7,6 @@ import {
   Button,
   Grid,
   Paper,
-  useTheme,
   Avatar,
   Stack,
   Chip,
@@ -23,8 +22,6 @@ const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
 const Home = () => {
-  const theme = useTheme();
-
   return (
     <Box sx={{ minHeight: '100vh' }}>
       {/* Hero Section */}
@@ -170,7 +167,7 @@ const Home = () => {
               }}
             >
               <Avatar
-                src="/images/desert dog.jpg"
+                src="/images/desert dog.JPG"
                 sx={{
                   width: { xs: 200, md: 300 },
                   height: { xs: 200, md: 300 },
