@@ -75,7 +75,9 @@ const Art = () => {
           width: '1129px',
           height: '82px',
           left: '10px',
-          top: '417px'
+          top: '50vh',
+          transform: 'translateY(-50%)',
+          marginBottom: '2rem'
         }}
       >
         {/* Base layer - cream fill with coral stroke */}
@@ -154,7 +156,8 @@ const Art = () => {
           alignItems: 'center',
           maxWidth: '1400px',
           margin: '0 auto',
-          overflow: 'visible'
+          overflow: 'visible',
+          marginTop: '-10vh'
         }}
       >
         {artworkData.map((art) => (
@@ -162,8 +165,8 @@ const Art = () => {
             key={art.id}
             initial={{ 
               rotate: art.position.rotate,
-              x: art.position.x - 700,  // Adjust the x offset
-              y: art.position.y - 400,  // Adjust the y offset
+              x: art.position.x - 700,
+              y: art.position.y - 300,
             }}
             style={{
               position: 'absolute',
