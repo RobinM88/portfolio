@@ -23,16 +23,16 @@ const projectsData = [
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website built with React and Material-UI, showcasing both artistic and technical work.',
     technologies: ['React', 'Material-UI', 'Framer Motion'],
-    githubUrl: 'https://github.com/yourusername/portfolio',
+    githubUrl: 'https://github.com/RobinM88/portfolio',
     liveUrl: 'https://portfolio-1c762.web.app/development',
   },
   {
     id: 2,
-    title: 'Art Gallery Platform',
-    description: 'A web application for showcasing and selling artwork, featuring a responsive design and intuitive user interface.',
-    technologies: ['React', 'Node.js', 'MongoDB'],
-    githubUrl: 'https://github.com/yourusername/art-gallery',
-    liveUrl: 'https://artgallery.com',
+    title: 'Food Pantry Client Management System',
+    description: 'A web application for managing food pantry clients, featuring a responsive design and intuitive user interface.',
+    technologies: ['React', 'Node.js','typescript', 'PostgreSQL','Material-UI', 'supabase'],
+    githubUrl: 'https://github.com/RobinM88/food_pantry',
+    
   },
   // Add more projects as needed
 ];

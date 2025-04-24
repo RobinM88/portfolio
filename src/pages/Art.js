@@ -142,7 +142,7 @@ const Art = () => {
             component="h1"
             sx={{
               fontFamily: 'MuseoModerno',
-              fontSize: '0px',
+              fontSize: '60px',
               fontWeight: 200,
               position: 'absolute',
               textTransform: 'uppercase',
