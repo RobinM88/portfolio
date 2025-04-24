@@ -3,7 +3,6 @@ import {
   Typography,
   Box,
   Card,
-  CardMedia,
   Dialog,
   DialogContent,
   IconButton,
@@ -19,28 +18,28 @@ const artworkData = [
     title: 'Boat',
     imageUrl: '/images/Boat fight.jpg',
     cardImageUrl: '/images/Boat card.png',
-    position: { x: '60%', y: '70%', rotate: -10 }
+    position: { x: 585.14, y: 447, rotate: -10 }
   },
   {
     id: 2,
     title: 'Samurai Wolf Hat',
     imageUrl: '/images/Samurai wolf hat.jpg',
     cardImageUrl: '/images/Samurai wolf hat card.png',
-    position: { x: '75%', y: '40%', rotate: 10 }
+    position: { x: 805, y: 335, rotate: 10 }
   },
   {
     id: 3,
     title: 'Dragon',
     imageUrl: '/images/Dragon fight.jpg',
     cardImageUrl: '/images/Dragon card.png',
-    position: { x: '55%', y: '20%', rotate: -10 }
+    position: { x: 805, y: 39, rotate: -10 }
   },
   {
     id: 4,
     title: 'Geisha',
     imageUrl: '/images/Geisha.jpg',
     cardImageUrl: '/images/geisha card.png',
-    position: { x: '40%', y: '30%', rotate: 15 }
+    position: { x: 585.14, y: -41, rotate: 15 }
   }
 ];
 
@@ -73,12 +72,10 @@ const Art = () => {
       <Box
         sx={{
           position: 'relative',
-          width: '100%',
-          maxWidth: '1129px',
+          width: '1129px',
           height: '82px',
-          mt: 4,
-          mx: 'auto',
-          px: 2
+          left: '10px',
+          top: '417px'
         }}
       >
         {/* Base layer - cream fill with coral stroke */}
@@ -87,15 +84,15 @@ const Art = () => {
           component="h1"
           sx={{
             fontFamily: 'MuseoModerno',
-            fontSize: { xs: '32px', sm: '48px', md: '64px' },
+            fontSize: '64px',
             fontWeight: 200,
             position: 'absolute',
             textTransform: 'uppercase',
             letterSpacing: '-3%',
             color: '#FFEEDD',
-            textAlign: 'center',
-            width: '100%',
-            WebkitTextStroke: { xs: '4px #FF5533', sm: '6px #FF5533', md: '8px #FF5533' },
+            textAlign: 'left',
+            WebkitTextStroke: '8px #FF5533',
+            shapeOutside: '8px #FF5533',
             textShadow: '0 0 15px rgba(255, 85, 51, 0.7), 0 0 30px rgba(255, 85, 51, 0.4)',
             zIndex: 1
           }}
@@ -109,15 +106,14 @@ const Art = () => {
           component="h1"
           sx={{
             fontFamily: 'MuseoModerno',
-            fontSize: { xs: '32px', sm: '48px', md: '64px' },
+            fontSize: '64px',
             fontWeight: 200,
             position: 'absolute',
             textTransform: 'uppercase',
             letterSpacing: '-3%',
             color: '#FFEEDD',
             opacity: 1,
-            textAlign: 'center',
-            width: '100%',
+            textAlign: 'left',
             textShadow: '0 0 15px rgba(255, 238, 221, 0.3)',
             zIndex: 2
           }}
@@ -131,15 +127,14 @@ const Art = () => {
           component="h1"
           sx={{
             fontFamily: 'MuseoModerno',
-            fontSize: { xs: '32px', sm: '48px', md: '64px' },
+            fontSize: '64px',
             fontWeight: 200,
             position: 'absolute',
             textTransform: 'uppercase',
             letterSpacing: '-3%',
             color: '#FF5533',
             opacity: 0.2,
-            textAlign: 'center',
-            width: '100%',
+            textAlign: 'left',
             textShadow: '0 0 20px rgba(255, 85, 51, 0.4)',
             zIndex: 3
           }}
@@ -153,9 +148,10 @@ const Art = () => {
         sx={{ 
           position: 'relative',
           width: '100%',
-          height: 'calc(100vh - 200px)',
+          height: '100vh',
           maxWidth: '1400px',
-          mt: 4
+          overflow: 'visible',
+          mb: 10  // Add margin bottom to prevent any cutoff
         }}
       >
         {artworkData.map((art) => (
@@ -163,11 +159,11 @@ const Art = () => {
             key={art.id}
             initial={{ 
               rotate: art.position.rotate,
+              x: art.position.x,
+              y: art.position.y,
             }}
             style={{
               position: 'absolute',
-              left: art.position.x,
-              top: art.position.y,
               cursor: 'pointer',
               transform: 'translate(-50%, -50%)',
             }}
@@ -183,9 +179,8 @@ const Art = () => {
               src={art.cardImageUrl || art.imageUrl}
               alt={art.title}
               sx={{
-                width: { xs: '200px', sm: '250px', md: '307.57px' },
-                height: 'auto',
-                aspectRatio: '307.57/378.28',
+                width: '307.57px',
+                height: '378.28px',
                 objectFit: 'cover',
                 position: 'relative',
                 display: 'block',
@@ -249,4 +244,4 @@ const Art = () => {
   );
 };
 
-export default Art; 
+export default Art;
