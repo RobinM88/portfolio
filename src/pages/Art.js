@@ -83,8 +83,8 @@ const Art = () => {
         <Box
           sx={{
             position: 'relative',
-            width: '1129px',
-            height: '82px',
+            width: '900px',
+            height: '65px',
             pointerEvents: 'auto'
           }}
         >
@@ -94,16 +94,16 @@ const Art = () => {
             component="h1"
             sx={{
               fontFamily: 'MuseoModerno',
-              fontSize: '64px',
+              fontSize: '50px',
               fontWeight: 200,
               position: 'absolute',
               textTransform: 'uppercase',
               letterSpacing: '-3%',
               color: '#FFEEDD',
               textAlign: 'left',
-              WebkitTextStroke: '8px #FF5533',
-              shapeOutside: '8px #FF5533',
-              textShadow: '0 0 15px rgba(255, 85, 51, 0.7), 0 0 30px rgba(255, 85, 51, 0.4)',
+              WebkitTextStroke: '6px #FF5533',
+              shapeOutside: '6px #FF5533',
+              textShadow: '0 0 12px rgba(255, 85, 51, 0.7), 0 0 24px rgba(255, 85, 51, 0.4)',
               zIndex: 1
             }}
           >
@@ -188,8 +188,8 @@ const Art = () => {
                 src={art.cardImageUrl || art.imageUrl}
                 alt={art.title}
                 sx={{
-                  width: '307.57px',
-                  height: '378.28px',
+                  width: '246px',
+                  height: '303px',
                   objectFit: 'cover',
                   position: 'relative',
                   display: 'block',
