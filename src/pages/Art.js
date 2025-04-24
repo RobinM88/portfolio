@@ -63,130 +63,142 @@ const Art = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         position: 'relative',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        overflow: 'hidden'
       }}
     >
       <Box
         sx={{
-          position: 'relative',
-          width: '1129px',
-          height: '82px',
-          left: '10px',
-          top: '417px'
-        }}
-      >
-        {/* Base layer - cream fill with coral stroke */}
-        <Typography
-          variant="h1"
-          component="h1"
-          sx={{
-            fontFamily: 'MuseoModerno',
-            fontSize: '64px',
-            fontWeight: 200,
-            position: 'absolute',
-            textTransform: 'uppercase',
-            letterSpacing: '-3%',
-            color: '#FFEEDD',
-            textAlign: 'left',
-            WebkitTextStroke: '8px #FF5533',
-            shapeOutside: '8px #FF5533',
-            textShadow: '0 0 15px rgba(255, 85, 51, 0.7), 0 0 30px rgba(255, 85, 51, 0.4)',
-            zIndex: 1
-          }}
-        >
-          ART GALLERY OF ROBIN MENNEL
-        </Typography>
-
-        {/* Black layer - 20% opacity */}
-        <Typography
-          variant="h1"
-          component="h1"
-          sx={{
-            fontFamily: 'MuseoModerno',
-            fontSize: '64px',
-            fontWeight: 200,
-            position: 'absolute',
-            textTransform: 'uppercase',
-            letterSpacing: '-3%',
-            color: '#FFEEDD',
-            opacity: 1,
-            textAlign: 'left',
-            textShadow: '0 0 15px rgba(255, 238, 221, 0.3)',
-            zIndex: 2
-          }}
-        >
-          ART GALLERY OF ROBIN MENNEL
-        </Typography>
-
-        {/* Coral layer - 20% opacity */}
-        <Typography
-          variant="h1"
-          component="h1"
-          sx={{
-            fontFamily: 'MuseoModerno',
-            fontSize: '64px',
-            fontWeight: 200,
-            position: 'absolute',
-            textTransform: 'uppercase',
-            letterSpacing: '-3%',
-            color: '#FF5533',
-            opacity: 0.2,
-            textAlign: 'left',
-            textShadow: '0 0 20px rgba(255, 85, 51, 0.4)',
-            zIndex: 3
-          }}
-        >
-          ART GALLERY OF ROBIN MENNEL
-        </Typography>
-      </Box>
-
-      {/* Floating Cards */}
-      <Box 
-        sx={{ 
-          position: 'relative',
+          position: 'fixed',
           width: '100%',
-          height: 'calc(100vh - 200px)',
-          maxWidth: '1400px',
+          height: '100%',
+          top: 0,
+          left: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          pointerEvents: 'none'
         }}
       >
-        {artworkData.map((art) => (
-          <motion.div
-            key={art.id}
-            initial={{ 
-              rotate: art.position.rotate,
-              x: art.position.x,
-              y: art.position.y,
-            }}
-            style={{
+        <Box
+          sx={{
+            position: 'relative',
+            width: '1129px',
+            height: '82px',
+            pointerEvents: 'auto'
+          }}
+        >
+          {/* Base layer - cream fill with coral stroke */}
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontFamily: 'MuseoModerno',
+              fontSize: '64px',
+              fontWeight: 200,
               position: 'absolute',
-              cursor: 'pointer',
-              transform: 'translate(-50%, -50%)',
+              textTransform: 'uppercase',
+              letterSpacing: '-3%',
+              color: '#FFEEDD',
+              textAlign: 'left',
+              WebkitTextStroke: '8px #FF5533',
+              shapeOutside: '8px #FF5533',
+              textShadow: '0 0 15px rgba(255, 85, 51, 0.7), 0 0 30px rgba(255, 85, 51, 0.4)',
+              zIndex: 1
             }}
-            whileHover={{ 
-              scale: 1.05,
-              rotate: art.position.rotate + (Math.random() * 2 - 1),
-              transition: { duration: 0.2 }
-            }}
-            onClick={() => handleArtClick(art)}
           >
-            <Box
-              component="img"
-              src={art.cardImageUrl || art.imageUrl}
-              alt={art.title}
-              sx={{
-                width: '307.57px',
-                height: '378.28px',
-                objectFit: 'cover',
-                position: 'relative',
-                display: 'block',
-                transformOrigin: 'center'
+            ART GALLERY OF ROBIN MENNEL
+          </Typography>
+
+          {/* Black layer - 20% opacity */}
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontFamily: 'MuseoModerno',
+              fontSize: '64px',
+              fontWeight: 200,
+              position: 'absolute',
+              textTransform: 'uppercase',
+              letterSpacing: '-3%',
+              color: '#FFEEDD',
+              opacity: 1,
+              textAlign: 'left',
+              textShadow: '0 0 15px rgba(255, 238, 221, 0.3)',
+              zIndex: 2
+            }}
+          >
+            ART GALLERY OF ROBIN MENNEL
+          </Typography>
+
+          {/* Coral layer - 20% opacity */}
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontFamily: 'MuseoModerno',
+              fontSize: '64px',
+              fontWeight: 200,
+              position: 'absolute',
+              textTransform: 'uppercase',
+              letterSpacing: '-3%',
+              color: '#FF5533',
+              opacity: 0.2,
+              textAlign: 'left',
+              textShadow: '0 0 20px rgba(255, 85, 51, 0.4)',
+              zIndex: 3
+            }}
+          >
+            ART GALLERY OF ROBIN MENNEL
+          </Typography>
+        </Box>
+
+        {/* Floating Cards */}
+        <Box 
+          sx={{ 
+            position: 'relative',
+            width: '100%',
+            height: 'calc(100vh - 200px)',
+            maxWidth: '1400px',
+            pointerEvents: 'auto'
+          }}
+        >
+          {artworkData.map((art) => (
+            <motion.div
+              key={art.id}
+              initial={{ 
+                rotate: art.position.rotate,
+                x: art.position.x,
+                y: art.position.y,
               }}
-            />
-          </motion.div>
-        ))}
+              style={{
+                position: 'absolute',
+                cursor: 'pointer',
+                transform: 'translate(-50%, -50%)',
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                rotate: art.position.rotate + (Math.random() * 2 - 1),
+                transition: { duration: 0.2 }
+              }}
+              onClick={() => handleArtClick(art)}
+            >
+              <Box
+                component="img"
+                src={art.cardImageUrl || art.imageUrl}
+                alt={art.title}
+                sx={{
+                  width: '307.57px',
+                  height: '378.28px',
+                  objectFit: 'cover',
+                  position: 'relative',
+                  display: 'block',
+                  transformOrigin: 'center'
+                }}
+              />
+            </motion.div>
+          ))}
+        </Box>
       </Box>
 
       {/* Artwork Detail Dialog */}
