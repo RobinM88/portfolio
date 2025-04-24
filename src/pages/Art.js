@@ -57,7 +57,7 @@ const Art = () => {
   return (
     <Box 
       sx={{
-        minHeight: '100vh',
+        minHeight: '120vh',
         bgcolor: '#0A192F',
         backgroundImage: 'url(/images/7448162.jpg)',
         backgroundSize: 'cover',
@@ -75,9 +75,7 @@ const Art = () => {
           width: '1129px',
           height: '82px',
           left: '10px',
-          top: '50vh',
-          transform: 'translateY(-50%)',
-          marginBottom: '2rem'
+          top: '417px'
         }}
       >
         {/* Base layer - cream fill with coral stroke */}
@@ -150,14 +148,8 @@ const Art = () => {
         sx={{ 
           position: 'relative',
           width: '100%',
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          height: 'calc(100vh - 200px)',
           maxWidth: '1400px',
-          margin: '0 auto',
-          overflow: 'visible',
-          marginTop: '-10vh'
         }}
       >
         {artworkData.map((art) => (
@@ -165,13 +157,13 @@ const Art = () => {
             key={art.id}
             initial={{ 
               rotate: art.position.rotate,
-              x: art.position.x - 700,
-              y: art.position.y - 300,
+              x: art.position.x,
+              y: art.position.y,
             }}
             style={{
               position: 'absolute',
               cursor: 'pointer',
-              transformOrigin: 'center',
+              transform: 'translate(-50%, -50%)',
             }}
             whileHover={{ 
               scale: 1.05,
