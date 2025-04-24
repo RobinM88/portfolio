@@ -39,7 +39,7 @@ const artworkData = [
     id: 4,
     title: 'Geisha',
     imageUrl: '/images/Geisha.jpg',
-    cardImageUrl: '/images/Geisha card.png',
+    cardImageUrl: '/images/geisha card.png',
     position: { x: '40%', y: '30%', rotate: 15 }
   }
 ];
