@@ -37,7 +37,7 @@ const artworkData = [
     id: 4,
     title: 'Geisha',
     imageUrl: '/images/Geisha.jpg',
-    cardImageUrl: '/images/Geisha card.png',
+    cardImageUrl: '/images/geisha card.png',
     position: { x: 100, y: -30, rotate: -10 }
   }
 ];
@@ -143,6 +143,7 @@ const Art = () => {
         maxWidth="md"
         fullWidth
         className={styles.dialog}
+        onClick={handleClose}
         PaperProps={{
           elevation: 0,
           className: styles.dialogContent,
@@ -155,7 +156,10 @@ const Art = () => {
           }
         }}
       >
-        <DialogContent style={{ padding: 0, margin: 0, border: 'none', background: 'transparent' }}>
+        <DialogContent 
+          style={{ padding: 0, margin: 0, border: 'none', background: 'transparent' }}
+          onClick={handleClose}
+        >
           <IconButton
             onClick={handleClose}
             className={styles.closeButton}
@@ -171,8 +175,10 @@ const Art = () => {
                 margin: 0,
                 padding: 0,
                 border: 'none',
-                background: 'none'
+                background: 'none',
+                cursor: 'pointer'
               }}
+              onClick={handleClose}
             />
           )}
         </DialogContent>

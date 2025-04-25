@@ -28,11 +28,11 @@
   font-family: 'MuseoModerno', sans-serif;
   text-transform: uppercase;
   letter-spacing: -0.03em;
-  color: #FFEEDD;
+  color: #DADAC2;
   text-shadow: 
   
-    0 0 15px rgba(255, 85, 51, 0.7),
-    0 0 30px rgba(255, 85, 51, 0.4);
+    0 0 15px rgba(11, 4, 39, 0.7),
+    0 0 30px rgba(7, 3, 22, 0.4);
   animation: glow 2s ease-in-out infinite alternate;
 }
 
@@ -136,13 +136,13 @@
 @keyframes glow {
   from {
     text-shadow: 
-      0 0 15px rgba(255, 85, 51, 0.7),
-      0 0 30px rgba(255, 85, 51, 0.4);
+      0 0 20px rgba(41, 14, 107, 0.7),
+      0 0 45px rgba(14, 13, 54, 0.688);
   }
   to {
     text-shadow: 
-      0 0 20px rgba(255, 85, 51, 0.9),
-      0 0 40px rgba(255, 85, 51, 0.6);
+      0 0 20px rgba(25, 7, 67, 0.9),
+      0 0 60px rgba(10, 5, 21, 0.6);
   }
 }
 
