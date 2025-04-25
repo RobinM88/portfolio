@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import {
   Typography,
-  Box,
   Dialog,
   DialogContent,
   IconButton,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion } from 'framer-motion';
-
-
+import styles from './Art.module.css';
 
 const artworkData = [
   {
@@ -17,33 +17,36 @@ const artworkData = [
     title: 'Boat',
     imageUrl: '/images/Boat fight.jpg',
     cardImageUrl: '/images/Boat card.png',
-    position: { x: 585.14, y: 447, rotate: -10 }
+    position: { x: 275, y: 100, rotate: -10 }
   },
   {
     id: 2,
     title: 'Samurai Wolf Hat',
     imageUrl: '/images/Samurai wolf hat.jpg',
     cardImageUrl: '/images/Samurai wolf hat card.png',
-    position: { x: 805, y: 395, rotate: 10 }
+    position: { x: 925, y: 100, rotate: 10 }
   },
   {
     id: 3,
     title: 'Dragon',
     imageUrl: '/images/Dragon fight.jpg',
     cardImageUrl: '/images/Dragon card.png',
-    position: { x: 805, y: 80, rotate: -10 }
+    position: { x: 1100, y: -30, rotate: -10 }
   },
   {
     id: 4,
     title: 'Geisha',
     imageUrl: '/images/Geisha.jpg',
-    cardImageUrl: '/images/geisha card.png',
-    position: { x: 585.14, y: 50, rotate: 15 }
+    cardImageUrl: '/images/Geisha card.png',
+    position: { x: 100, y: -30, rotate: -10 }
   }
 ];
 
 const Art = () => {
   const [selectedArt, setSelectedArt] = useState(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleArtClick = (art) => {
     setSelectedArt(art);
@@ -53,211 +56,128 @@ const Art = () => {
     setSelectedArt(null);
   };
 
+  const getResponsivePosition = (position, index) => {
+    if (isMobile) {
+      return {
+        x: '50%',
+        y: 150 + (index * 330),
+        rotate: 0
+      };
+    } else if (isTablet) {
+      const row = Math.floor(index / 2);
+      const col = index % 2;
+      return {
+        x: col === 0 ? '30%' : '70%',
+        y: 200 + (row * 350),
+        rotate: position.rotate * 0.5
+      };
+    }
+    return position;
+  };
+
   return (
-    <Box 
-      sx={{
-        minHeight: '100vh',
-        bgcolor: '#0A192F',
-        backgroundImage: 'url(/images/7448162.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
-      <Box
-        sx={{
-          position: 'fixed',
-          width: '100%',
-          height: '100vh',
-          top: 0,
-          left: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-          pointerEvents: 'none'
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '1129px',
-            height: '82px',
-            pointerEvents: 'auto',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            left: '475px',
-            top: '350px',
-            transform: 'none'
-          }}
-        >
-          {/* Base layer - coral fill */}
+    <div className={styles.artPage}>
+      <div className={styles.container}>
+        <div className={styles.titleContainer}>
           <Typography
             variant="h1"
             component="h1"
-            sx={{
-              fontFamily: 'MuseoModerno',
-              fontSize: '60px',
-              fontWeight: 200,
-              position: 'absolute',
-              textTransform: 'uppercase',
-              letterSpacing: '-3%',
-              color: '#FF5533',
-              textAlign: 'left',
-              textShadow: '0 0 15px rgba(255, 85, 51, 0.7)',
-              zIndex: 1,
-              whiteSpace: 'nowrap'
-            }}
+            className={styles.title}
           >
             ART GALLERY OF ROBIN MENNEL
           </Typography>
+        </div>
 
-          {/* Glow layer */}
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              fontFamily: 'MuseoModerno',
-              fontSize: '60px',
-              fontWeight: 200,
-              position: 'absolute',
-              textTransform: 'uppercase',
-              letterSpacing: '-3%',
-              color: '#FF8866',
-              opacity: 0.8,
-              textAlign: 'left',
-              textShadow: '0 0 20px rgba(255, 85, 51, 0.9), 0 0 30px rgba(255, 85, 51, 0.5)',
-              zIndex: 2,
-              whiteSpace: 'nowrap'
-            }}
-          >
-            ART GALLERY OF ROBIN MENNEL
-          </Typography>
-
-          {/* Bright highlight layer */}
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              fontFamily: 'MuseoModerno',
-              fontSize: '60px',
-              fontWeight: 200,
-              position: 'absolute',
-              textTransform: 'uppercase',
-              letterSpacing: '-3%',
-              color: '#FFAA99',
-              opacity: 0.4,
-              textAlign: 'left',
-              textShadow: '0 0 8px rgba(255, 255, 221, 0.8)',
-              zIndex: 3,
-              whiteSpace: 'nowrap'
-            }}
-          >
-            ART GALLERY OF ROBIN MENNEL
-          </Typography>
-        </Box>
-
-        {/* Floating Cards */}
-        <Box 
-          sx={{ 
-            position: 'relative',
-            width: '90vw',
-            height: '70vh',
-            maxWidth: '1400px',
-            pointerEvents: 'auto',
-            margin: '0 auto'
-          }}
-        >
-          {artworkData.map((art) => (
-            <motion.div
-              key={art.id}
-              initial={{ 
-                rotate: art.position.rotate,
-                x: art.position.x,
-                y: art.position.y,
-              }}
-              style={{
-                position: 'absolute',
-                cursor: 'pointer',
-                transform: 'translate(-50%, -50%)',
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                rotate: art.position.rotate + (Math.random() * 2 - 1),
-                transition: { duration: 0.2 }
-              }}
-              onClick={() => handleArtClick(art)}
-            >
-              <Box
-                component="img"
-                src={art.cardImageUrl || art.imageUrl}
-                alt={art.title}
-                sx={{
+        <div className={styles.artworkContainer}>
+          {artworkData.map((art, index) => {
+            const pos = getResponsivePosition(art.position, index);
+            return (
+              <motion.div
+                key={art.id}
+                className={styles.artCard}
+                animate={{ 
+                  x: pos.x,
+                  y: pos.y,
+                }}
+                initial={false}
+                style={{
+                  left: 0,
+                  top: 0,
+                  transform: `translate(-50%, -50%) rotate(${pos.rotate}deg)`,
                   width: '246px',
                   height: '303px',
-                  objectFit: 'cover',
-                  position: 'relative',
-                  display: 'block',
-                  transformOrigin: 'center'
+                  background: 'none',
+                  padding: 0,
+                  margin: 0,
+                  border: 'none'
                 }}
-              />
-            </motion.div>
-          ))}
-        </Box>
-      </Box>
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                onClick={() => handleArtClick(art)}
+              >
+                <img
+                  src={art.cardImageUrl || art.imageUrl}
+                  alt={art.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    margin: 0,
+                    padding: 0,
+                    border: 'none',
+                    borderRadius: '12px'
+                  }}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
 
-      {/* Artwork Detail Dialog */}
       <Dialog
         open={Boolean(selectedArt)}
         onClose={handleClose}
-        maxWidth="lg"
+        maxWidth="md"
+        fullWidth
+        className={styles.dialog}
         PaperProps={{
-          sx: {
-            borderRadius: '24px',
-            overflow: 'hidden',
-            bgcolor: 'transparent',
+          elevation: 0,
+          className: styles.dialogContent,
+          style: {
+            background: 'transparent',
             boxShadow: 'none',
-          },
+            margin: 0,
+            padding: 0,
+            border: 'none'
+          }
         }}
       >
-        {selectedArt && (
-          <DialogContent sx={{ p: 0, position: 'relative' }}>
-            <IconButton
-              onClick={handleClose}
-              sx={{
-                position: 'absolute',
-                right: 16,
-                top: 16,
-                color: 'white',
-                bgcolor: 'rgba(0, 0, 0, 0.5)',
-                '&:hover': {
-                  bgcolor: 'rgba(0, 0, 0, 0.7)',
-                },
-                zIndex: 1,
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
-            <Box
-              component="img"
+        <DialogContent style={{ padding: 0, margin: 0, border: 'none', background: 'transparent' }}>
+          <IconButton
+            onClick={handleClose}
+            className={styles.closeButton}
+          >
+            <CloseIcon />
+          </IconButton>
+          {selectedArt && (
+            <img
               src={selectedArt.imageUrl}
               alt={selectedArt.title}
-              sx={{
-                width: 'auto',
-                height: 'auto',
-                maxWidth: '90vw',
-                maxHeight: '90vh',
-                display: 'block',
-                borderRadius: '24px',
-                boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.25)',
+              className={styles.enlargedImage}
+              style={{
+                margin: 0,
+                padding: 0,
+                border: 'none',
+                background: 'none'
               }}
             />
-          </DialogContent>
-        )}
+          )}
+        </DialogContent>
       </Dialog>
-    </Box>
+    </div>
   );
 };
 
